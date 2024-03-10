@@ -1,0 +1,8 @@
+Steps to run scripts
+
+To Run all classes/suite
+1. open testNG.xml 
+2. Right click on "testNG.xml" file
+3. select Run as
+4. click on Run as testNG test
+
