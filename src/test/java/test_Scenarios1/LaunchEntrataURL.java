@@ -51,18 +51,3 @@ public class LaunchEntrataURL {
 	
 	
 }
-
-		
-		
-		
-		 
-		
-	
-  
-
-	
-
-
-    
-
-
