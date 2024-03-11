@@ -9,6 +9,7 @@ The test suite configuration is defined in the `testng.xml` file. The suite incl
 ## Steps to run scripts
 
 ## Prerequisite
+1. pom.xml file needs to be open to include dependencies defined.
 
 ### Steps to import the project( Used: Eclipse IDE )
 1. Go to file>>Import>>Git>>Projects From Git>>Clone URI and provide the following URL
@@ -16,6 +17,7 @@ The test suite configuration is defined in the `testng.xml` file. The suite incl
 2. Use requied directory location
 
 ### Steps to run the project
-1. In project explorer of eclipse locate testNG.xml( From main direcotry )
-2. Right click on "testNG.xml" file and Run as testNG test
+1. In project explorer of eclipse locate pom.xml and open it.
+2. In project explorer of eclipse locate testNG.xml( From main direcotry ).
+3. Right click on "testNG.xml" file and Run as testNG test.
 
