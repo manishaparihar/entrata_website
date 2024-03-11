@@ -23,8 +23,18 @@ public class WatchDemo extends LaunchEntrataURL {
  		WDButton.isDisplayed();
  		WDButton.isEnabled();
  		WDButton.click();
- 		Thread.sleep(3000);
+ 		Thread.sleep(500);
  		
+ 		//to get title
+ 		String actualTitle = driver.getTitle();
+		//to print the title of page
+		System.out.println("title is-----"+actualTitle);
+		String expectedTitle="Property Management Software | Entrata";
+		//comparing actual title and expected title
+		Assert.assertEquals(actualTitle,expectedTitle, "Matched");
+		
+		
+ 		//to fill the form send text to first name
  		WebElement FirstName = driver.findElement(By.id("FirstName"));
  		
  		Assert.assertTrue(FirstName.isDisplayed());  
@@ -32,25 +42,49 @@ public class WatchDemo extends LaunchEntrataURL {
  		 FirstName.isEnabled();
  		
  		FirstName.sendKeys("manisha");
- 		//FirstName.clear();
- 		//Assert.assertSame(WDButton, FirstName);
-    	 
+ 		 
     	 WebElement LastName = driver.findElement(By.id("LastName"));
-    	 
+    	 LastName.isDisplayed();
+    	 LastName.isEnabled();
+ 
     	 Assert.assertTrue(LastName.isDisplayed());  
     	 LastName.sendKeys("parihar");
- 	 
-         WebElement EmailId = driver.findElement(By.id("Email"));
-         EmailId.sendKeys("manishaparihar@gmai.com");
-        // Assert.assertEquals("//div[text()='Must be valid email. ']", "Must be valid email.\r\n"
-         //		+ "example@yourdomain.com");
+    	 
+    	 //to validate the wrong emailid message
+    	  WebElement EmailId = driver.findElement(By.id("Email"));
+          EmailId.sendKeys("manishaparihar222");
+          LastName.click();
+          EmailId.click();
+        
+          Thread.sleep(200);
+          WebElement WrongEmailIdMessage = driver.findElement(By.xpath("//div[@id='ValidMsgEmail']"));
+          WrongEmailIdMessage.isEnabled();
+          Assert.assertTrue(WrongEmailIdMessage.isDisplayed());
+          EmailId.clear();
+          
+        
+         WebElement EmailId1 = driver.findElement(By.id("Email"));
+         EmailId1.sendKeys("manishaparihar@gmai.com");
+       
          
          WebElement CompanyName = driver.findElement(By.id("Company"));
          CompanyName.sendKeys("entrata");
          
+         //validate wrong phone number
          WebElement PhoneNumber = driver.findElement(By.id("Phone"));
-         PhoneNumber.sendKeys("9875643275");
-         Thread.sleep(3000);
+         PhoneNumber.sendKeys("xyz");
+         LastName.click();
+         PhoneNumber.click();
+       
+         Thread.sleep(200);
+         WebElement WrongPhoneNumber = driver.findElement(By.xpath("//div[text()='Must be a phone number. ']"));
+         WrongPhoneNumber.isEnabled();
+         Assert.assertTrue(WrongPhoneNumber.isDisplayed());
+         PhoneNumber.clear();
+         
+         WebElement PhoneNumber1 = driver.findElement(By.id("Phone"));
+         PhoneNumber1.sendKeys("9875643275");
+         Thread.sleep(500);
          
          Select sell=new Select(driver.findElementById("Unit_Count__c"));
          sell.selectByIndex(3);
@@ -61,33 +95,10 @@ public class WatchDemo extends LaunchEntrataURL {
          Select sell2=new Select(driver.findElementById("demoRequest"));
          sell2.selectByValue("a Resident");
          
-         Thread.sleep(3000);
-     
-
- /*     
-        WebElement EmailId = driver.findElement(By.id("Email"));
-         EmailId.sendKeys("manishaparihar222");
-         
-         LastName.click();
-         EmailId.click();
-         Thread.sleep(200);
-         WebElement WrongEmailIdMessage = driver.findElement(By.xpath("//div[@id='ValidMsgEmail']"));
-         WrongEmailIdMessage.isEnabled();
-         Assert.assertTrue(WrongEmailIdMessage.isDisplayed());  
-   */      
-         
-        /* LastName.clear();
-         EmailId.clear();
-         PhoneNumber.clear();
-         JobTitle.clear();*/
- //        Thread.sleep(3000);
+         Thread.sleep(1000);
          
         
-  
      }
    
-    
-    
- 
 	
 }

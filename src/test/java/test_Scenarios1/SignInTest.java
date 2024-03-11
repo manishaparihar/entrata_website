@@ -2,6 +2,7 @@ package test_Scenarios1;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,24 +18,17 @@ public class SignInTest extends LaunchEntrataURL {
 		SignInButton.isDisplayed();
 		SignInButton.isEnabled();
 		SignInButton.click();
-		Thread.sleep(6000);
+		Thread.sleep(1000);
+		
+		String actualTitle = driver.getTitle();
+		//to print the title of page
+		System.out.println("title is-----"+actualTitle);
+		String expectedTitle="Entrata Sign In";
+		//comparing actual title and expected title
+		Assert.assertEquals(actualTitle,expectedTitle, "Matched");
 	}
 
-	/*WebDriverWait wait = new WebDriverWait(driver, 30);
-     	WebElement PML = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("a[title='Client Login Button']")));
-
-     	PML.click();
-     	Thread.sleep(5000);
-     	/* try {
-     		WebElement PML = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("a[title='Client Login Button']")));
-
-         	PML.click();
-         	Thread.sleep(5000);
-         } catch (org.openqa.selenium.TimeoutException e) {
-             System.out.println("TimeoutException: " + e.getMessage());
-         } finally {
-             //driver.quit();
-         }*/
+	
 	@Test(priority=2)
 	public void testResidentLogin() throws InterruptedException {
 
@@ -42,15 +36,29 @@ public class SignInTest extends LaunchEntrataURL {
 		WebElement Resident = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Resident Login']")));
 
 		Resident.click();
-		Thread.sleep(5000);
+		Thread.sleep(1000);
+		
+		//to get title of page
+		String actualTitle = driver.getTitle();
+		
+		//to print the title of page
+		System.out.println("title is-----"+actualTitle);
+		
+		String expectedTitle="Welcome to the Resident Portal App";
+		//comparing actual title and expected title
+		Assert.assertEquals(actualTitle,expectedTitle, "Matched");
+		
 	}
+	
 	@Test(priority=3)
 	public void testViewApp() throws InterruptedException {  	
 		WebElement ViewApp =driver.findElement(By.xpath("//div[text()='View the App']"));
 		ViewApp.isDisplayed();
 		ViewApp.isEnabled();
 		ViewApp.click();
-		Thread.sleep(6000);
+		Thread.sleep(1000);
+		
+		
 	}
 	@Test(priority=4)
 	public void viewAppPage() throws InterruptedException {
@@ -60,32 +68,27 @@ public class SignInTest extends LaunchEntrataURL {
 		Video.isDisplayed();
 		Video.isEnabled();
 		Video.click();
-		Thread.sleep(6000);	
-		js.executeScript("window.scrollBy(0,500)"); //vertical scroll
-
+		Thread.sleep(1000);	
+		//vertical scroll 
+		js.executeScript("window.scrollBy(0,500)");
+		
+       //to open appFeatures 
 		WebElement AppFeatures =driver.findElement(By.xpath("//div[@class='landing-nav app-content']//a[text()='App Features']"));
 		AppFeatures.isDisplayed();
 		AppFeatures.isEnabled();
 		AppFeatures.click();
-		Thread.sleep(6000);
-
+		Thread.sleep(500);
+		
+		//click on menu bar
 		WebElement Menu =driver.findElement(By.xpath("//div[@class='nav-burger']"));
 		Menu.isDisplayed();
 		Menu.isEnabled();
 		Menu.click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		WebElement close =driver.findElement(By.xpath("//div[@class='nav-burger']"));
 		close.click();
-		Thread.sleep(6000);
+		Thread.sleep(600);
 	}
-	/*WebElement PropertyManagerLogInButton1 =driver.findElement(By.xpath("//a[@title='Client Login Button']"));
-		PropertyManagerLogInButton1.isDisplayed();
-		PropertyManagerLogInButton1.isEnabled();
-		PropertyManagerLogInButton1.click();
-		Thread.sleep(6000);
-		}
-*/
-		
-
+	
 
 }

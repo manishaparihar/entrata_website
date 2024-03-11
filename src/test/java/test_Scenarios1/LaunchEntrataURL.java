@@ -29,11 +29,12 @@ public class LaunchEntrataURL {
         options.addArguments("--remote-allow-origins=*");
          driver = new ChromeDriver(options);
         
- //       driver = new ChromeDriver();
+ 
         driver.manage().window().maximize();
         driver.get("https://www.entrata.com//");
        
-        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        //to decline cookies
        WebElement e= driver.findElementById("rcc-decline-button");
        e.click();
        
