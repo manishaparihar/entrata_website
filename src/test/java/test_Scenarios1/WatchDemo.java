@@ -56,7 +56,7 @@ public class WatchDemo extends LaunchEntrataURL {
           LastName.click();
           EmailId.click();
         
-          Thread.sleep(200);
+          Thread.sleep(500);
           WebElement WrongEmailIdMessage = driver.findElement(By.xpath("//div[@id='ValidMsgEmail']"));
           WrongEmailIdMessage.isEnabled();
           Assert.assertTrue(WrongEmailIdMessage.isDisplayed());
@@ -76,7 +76,7 @@ public class WatchDemo extends LaunchEntrataURL {
          LastName.click();
          PhoneNumber.click();
        
-         Thread.sleep(200);
+         Thread.sleep(500);
          WebElement WrongPhoneNumber = driver.findElement(By.xpath("//div[text()='Must be a phone number. ']"));
          WrongPhoneNumber.isEnabled();
          Assert.assertTrue(WrongPhoneNumber.isDisplayed());
